@@ -42,7 +42,7 @@
                 <td>{{ character.created ? character.created|date('d/m/Y') : '' }}</td>
                 <td>{{ character.modified ? character.modified|date('d/m/Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_character_edit', {'id': character.id}) }}">Modifier</a>
+                    <a href="{{ path('api_character_edit', {'identifier': character.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -53,5 +53,5 @@
         </tbody>
     </table>
 {# New Character #}
-    <p class="text-center"><a href="{{ path('app_character_new') }}" class="btn btn-primary">Nouveau Character</a></p>
+    <p class="text-center"><a href="{{ path('api_character_new') }}" class="btn btn-primary">Nouveau Character</a></p>
 {% endblock %}

@@ -58,10 +58,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_character_index') }}">back to list</a>
+    <a href="{{ path('api_character_index') }}">back to list</a>
 
-    <a href="{{ path('app_character_edit', {'id': character.id}) }}">edit</a>
+    <a href="{{ path('api_character_edit', {'id': character.id}) }}">edit</a>
 <div class="col-6 offset-3">
-    {{ include('character/_delete_form.html.twig') }}
+    {{ include('api-character/_delete_form.html.twig') }}
 </div>
 {% endblock %}

@@ -6,6 +6,8 @@ use App\Entity\Character;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CharacterType extends AbstractType
 {
@@ -13,14 +15,36 @@ class CharacterType extends AbstractType
     {
         $builder
             ->add('identifier')
-            ->add('name')
-            ->add('kind')
-            ->add('surname')
-            ->add('caste')
-            ->add('knowledge')
-            ->add('intelligence')
-            ->add('life')
-            ->add('image')
+            ->add('name', TextType::class)
+            ->add('kind', TextType::class)
+            ->add('surname', TextType::class)
+            ->add('caste', TextType::class, array(
+                                'required' => false,
+                                'help' => 'Caste du Character',
+            ))
+            ->add('knowledge', TextType::class, array(
+                                'required' => false,
+                            ))
+            ->add('intelligence', IntegerType::class, array(
+                                'required' => false,
+                                'help' => 'Niveau d\'intelligence du Character (1-250)',
+                                'attr' => array(
+                                    'min' => 1,
+                                    'max' => 250,
+                                ),
+                            ))                
+            ->add('life', IntegerType::class, array(
+                                'required' => false,
+                                'label' => 'Niveau de vie',
+                                'attr' => array(
+                                                'min' => 1,
+                                                'max' => 250,
+                                                'placeholder' => 'Niveau de vie du Character (1-250)',
+                                                ),
+                                            ))
+            ->add('image', TextType::class, array(
+                'required' => false,
+            ))
             ->add('created')
             ->add('modified')
         ;

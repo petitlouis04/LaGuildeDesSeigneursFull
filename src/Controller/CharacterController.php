@@ -69,7 +69,7 @@ class CharacterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $characterRepository->add($character, true);
 
-            return $this->redirectToRoute('app_character_show', [
+            return $this->redirectToRoute(' ', [
                                 'id' => $character->getId()
                             ], Response::HTTP_SEE_OTHER);
         }

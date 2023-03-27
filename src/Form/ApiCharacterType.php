@@ -14,7 +14,6 @@ class ApiCharacterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('identifier')
             ->add('name', TextType::class)
             ->add('kind', TextType::class)
             ->add('surname', TextType::class)
@@ -45,8 +44,6 @@ class ApiCharacterType extends AbstractType
             ->add('image', TextType::class, array(
                 'required' => false,
             ))
-            ->add('created')
-            ->add('modified')
         ;
     }
 

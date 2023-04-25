@@ -22,6 +22,7 @@ class ApiLoginController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        
         /*var_dump($this->getParameter('app.api_url') . 'signin', //On récupère notre paramètre
         [
             'json' => [
@@ -41,7 +42,7 @@ class ApiLoginController extends AbstractController
             ]
         );
         // Mise en session du token
-        if(200 === $response->getStatusCode()) {
+        if(200 == $response->getStatusCode()) {
             $content = json_decode($response->getContent(), true);
             $request->getSession()->set('token', $content['token']);
             return $this->redirectToRoute('api_character_index', [], Response::HTTP_SEE_OTHER);

@@ -91,4 +91,14 @@ class CharacterController extends AbstractController
 
         return $this->redirectToRoute('app_character_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    /**
+     * @Route("/intelligence/{intelligence}", name="app_character_intelligence", methods={"GET"})
+     */
+    public function intelligenceCharacter(CharacterRepository $characterRepository,int $intelligence): Response
+    {
+        return $this->render('character/index.html.twig', [
+            'characters' => $characterRepository->findByIntelligence($intelligence),
+        ]);
+    }
 }
